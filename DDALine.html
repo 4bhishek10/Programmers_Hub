@@ -1,0 +1,180 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">DDA LINE</h1>
+  <div class="button">
+<p>#include<a><</a>iostream></p>
+<p>#include<a><</a>graphics.h></p>
+<p>#include<a><</a>math.h></p>
+<p>using namespace std;</p>
+<p>{</p>
+<p>int x,y,steps,pk,pk1;</p>
+<p>float dx,dy,xinc,yinc,slope;</p>
+<p>public:</p>
+ <p>pixel()</p>
+ <p>{</p>
+  <p>x=0;</p>
+  <p>y=0;</p>
+  <p>steps=0;</p>
+  <p>pk=0;</p>
+  <p>pk1=0;</p>
+  <p>dx=0;</p>
+  <p>xinc=0;</p>
+    <p>dy=0;</p>
+  <p>yinc=0;</p>
+  <p>slope=0;</p>
+ <p>}</p>
+
+ <p>void dda(int x1,int y1,int x2,int y2)</p>
+ <p>{</p>
+ <p>dx=x2-x1;</p>
+ <p>dy=y2-y1;</p>
+ <p>if(dx>dy)</p>
+ <p>steps=dx;</p>
+ <p>else</p>
+ <p>steps=dy;</p>
+ <p>xinc=dx/steps;</p>
+ <p>yinc=dy/steps;</p>
+ <p>x=x1;</p>
+ <p>y=y1;</p>
+ <p>int gd=DETECT,gm;</p>
+ <p>initgraph(&gd,&gm,NULL);</p>
+<p>for(int i=0;i<steps;i++)</p>
+ <p>{</p>
+ <p>putpixel(round(x),round(y),RED);</p>
+ <p>delay(50);</p>
+ <p>x=x+xinc;</p>
+ <p>y=y+yinc;</p>
+ <p>}</p>
+ <p>}// dda function closing</p>
+
+
+ <p>void bresenham(int x1,int y1,int x2,int y2)</p>
+ <p>{</p>
+
+  <p>int gd=DETECT,gm;</p>
+  <p>initgraph(&gd,&gm,NULL);</p>
+  <p>putpixel(x1,y1,RED);</p>
+  <p>delay(100);</p>
+  <p>dx=x2-x1;</p>
+  <p>dy=y2-y1;</p>
+  <p>slope=dy/dx;</p>
+  <p>cout<<"slope"<<slope;</p>
+ <p>if(slope<1)</p>
+ <p>{</p>
+  <p>pk=2*dy-dx;</p>
+  <p>for(int k=0;k<dx-1;k++)</p>
+  <p>{</p>
+    <p>if(pk<0)</p>
+    <p>{</p>
+     <p>int gd=DETECT,gm;</p>
+     <p>initgraph(&gd,&gm,NULL);</p>
+     <p>putpixel(x1++,y1,RED);</p>
+     <p>delay(100);</p>
+     <p>pk1=pk+2*dy;</p>
+     <p>pk=pk1;</p>
+    <p>}</p>
+ <p>}</p>
+    <p>else</p>
+   <p>{</p>
+     <p>int gd=DETECT,gm;</p>
+     <p>initgraph(&gd,&gm,NULL);</p>
+     <p>putpixel(x1++,y1++,RED);</p>
+     <p>delay(100);</p>
+     <p>pk1=pk+2*(dy-dx);</p>
+     <p>pk=pk1;</p>
+   <p>}</p>
+  <p>}</p>
+ <p>}//CLOSE IF</p>
+ <p>}//bresenham fun closing</p>
+<p>};</p>
+
+ <p>class display:public pixel</p>
+ <p>{</p>
+   <p>public:</p>
+    <p>void initgraph(int X1,int Y1,int X2,int Y2)</p>
+   <p>{</p>
+    <p>x1=X1;</p>
+    <p>y1=Y1;</p>
+    <p>x2=X2;</p>
+    <p>y2=Y2;</p>
+   <p>}</p>
+  <p>void drawing(int s)</p>
+  <p>{</p>
+   <p>dda(int x1,int y1,int x2,int y2);</p>
+  <p>}</p>
+  <p>void drawing()</p>
+  <p>{</p>
+  <p>bresenham(int x1,int y1,int y2,int y2);</p>
+  <p>}</p>
+ <p>};</p>
+<p>int main()</p>
+<p>{</p>
+<p>int ch;</p>
+<p>char ans;</p>
+<p>display d;</p>
+<p>int X1,Y1,X2,Y2;</p>
+<p>int gd=DETECT,gm;</p>
+<p>initgraph(&gd,&gm,NULL);</p>
+<p>cout<<"Enter starting pt.";</p>
+<p>cin>>X1>>Y1;</p>
+<p>cout<<"Enter end pt.";</p>
+<p>cin>>X2>>Y2;</p>
+<p>do</p>
+<p>{</p>
+<p>cout<<"\n1.DDA Algorithm\n2.BRESENHAM Algorithm\nEnter choice";</p>
+<p>cin>>ch;</p>
+<p>switch(ch)</p>
+<p>{</p>
+ <p>case 1:</p>
+   <p>d.initgraph(X1,Y1,X2,Y2);</p>
+   <p>d.drawing(1);</p>
+   <p>initgraph(&gd,&gm,NULL);</p>
+ <p>break;</p>
+ <p>case 2:</p>
+    <p>d.initgraph(X1,Y1,X2,Y2);</p>
+   <p>d.drawing();</p>
+   <p>initgraph(&gd,&gm,NULL);</p>
+   <p>break;</p>
+<p>}//end of switch</p>
+<p>cout<<"\nDo you want to to continue(y/n)";</p>
+<p>cin>>ans;</p>
+<p>}while(ans!='n');//end of do while</p>
+<p>return 0;</p>
+<p>}</p>
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">Without Overlap</h1>
+  <div class="button">
+<p>#include <a><</a>iostream></p>
+<p>#include <a><</a>string.h></p>
+<p>#include<a><</a>ctype.h></p>
+<p>using namespace std;</p>
+<p>class tree</p>
+<p>{</p>
+<p>public:</p>
+	<p>struct node</p>
+	<p>{</p>
+		<p>node *right;</p>
+		<p>node *left;</p>
+		<p>char data;</p>
+
+	<p>};</p>
+	<p>node *st[10];</p>
+		<p>int top;</p>
+	<p>node *root;</p>
+	<p>node *temp;</p>
+	<p>tree()</p>
+	<p>{</p>
+		<p>root=NULL;</p>
+		<p>temp=NULL;</p>
+		<p>top=-1;</p>
+	<p>}</p>
+	<p>int  isfull()</p>
+	<p>{</p>
+      <p>if(top>=9)</p>
+      <p>return 1;</p>
+      <p>else</p>
+      <p>return 0;</p>
+	<p>}</p>
+	<p>int isempty()</p>
+	<p>{</p>
+		<p>if(top==-1)</p>
+			<p>return 1;</p>
+		<p>else</p>
+			<p>return  0;</p>
+	<p>}</p>
+	<p>void push(node *root)</p>
+	<p>{</p>
+		<p>top++;</p>
+		<p>st[top]=root;</p>
+	<p>}</p>
+	<p>void pop()</p>
+	<p>{</p>
+		<p>temp=st[top];</p>
+		<p>top--;</p>
+	<p>}</p>
+	<p>char exp[10];</p>
+	<p>void input()</p>
+	<p>{</p>
+	<p>cout<<"Enter the expression";</p>
+	<p>cin>>exp;</p>
+
+	<p>}</p>
+	<p>void ckop()</p>
+	<p>{</p>
+		<p>for(int i=0;i<a><</a>strlen(exp);i++)</p>
+		<p>{</p>
+
+			<p>if(exp[i]>=97 && exp[i]<=123)</p>
+			<p>{</p>
+				 <p>create(exp[i]);</p>
+			<p>}</p>
+			<p>else</p>
+
+			 <p>insert(exp[i]);</p>
+		<p>}</p>
+		<p>pop();</p>
+		<p>root=temp;</p>
+	<p>}</p>
+	<p>void create(char exp)</p>
+	<p>{</p>
+        <p>node *nnode;</p>
+        <p>nnode=new node;</p>
+        <p>nnode->data=exp;</p>
+        <p>nnode->left=NULL;</p>
+        <p>nnode->right=NULL;</p>
+
+        <p>push(nnode);</p>
+	<p>}</p>
+	<p>void insert(char exp)</p>
+	<p>{</p>
+		<p>node *nnode;</p>
+		<p>nnode=new node;</p>
+		<p>nnode->data=exp;</p>
+		<p>pop();</p>
+		<p>nnode->right=temp;</p>
+		<p>pop();</p>
+		<p>nnode->left=temp;</p>
+
+		<p>push(nnode);</p>
+
+	<p>}</p>
+
+	<p>void inorder(node *temp)</p>
+	<p>{</p>
+		<p>if (temp!=NULL)</p>
+		<p>{</p>
+		<p>inorder(temp->left);</p>
+		<p>cout<<temp->data;</p>
+		<p>inorder(temp->right);</p>
+		<p>}</p>
+	<p>}</p>
+	<p>void display()</p>
+	<p>{</p>
+		 <p>inorder(temp);</p>
+	<p>}};</p>
+
+<p>int main()</p>
+<p>{</p>
+<p>tree t;</p>
+<p>int y;</p>
+<p>char ans;</p>
+<p>cout<<"***MENU****"<<a><</a>endl;</p>
+<p>do</p>
+<p>{</p>
+<p>cout<<"1.Enter Exp and Check\n 2.Display Inorder"<<a><</a>endl;</p>
+<p>cout<<"Enter your Choice:"<<a><</a>endl;</p>
+<p>cin>>y;</p>
+
+	<p>switch(y)</p>
+	<p>{</p>
+	<p>case 1:t.input();</p>
+
+		<p>t.ckop();</p>
+		<p>break;</p>
+	<p>case 2: cout<<"The Output is:"<<a><</a>endl;</p>
+		<p>t.display();</p>
+	<p>break;</p>
+	<p>}</p>
+	<p>cout<<"\nDo you want to Continue(y/n)"</p>
+			<p>cin>>ans;</p>
+<p>}while(ans=='y');</p>
+	<p>return 0;</p>
+<p>}</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">Bresenham Circle Class</h1>
+  <div class="button">
+<p>#include<a><</a>iostream></p>
+<p>#include<a><</a>graphics.h></p>
+<p>#include<a><</a>math.h></p>
+<p>using namespace std;</p>
+<p>class a</p>
+<p>{</p>
+<p>public:</p>
+<p>int xc,yc,r;</p>
+<p>void input()</p>
+<p>{</p>
+<p>cout<<"Enter radius";</p>
+<p>cin>>r;</p>
+<p>cout<<"Enter xc";</p>
+<p>cin>>xc;</p>
+<p>cout<<"Enter yc";</p>
+<p>cin>>yc;</p>
+<p>}</p>
+<p>};</p>
+<p>class b:public a</p>
+<p>{</p>
+<p>public:</p>
+<p>void circle(int xc,int yc,int r)</p>
+<p>{</p>
+<p>int x,y;</p>
+<p>x=0;</p>
+<p>y=r;</p>
+<p>int p0,pk;</p>
+<p>p0=3-(2*r);</p>
+<p>pk=p0;</p>
+<p>while(x<=y)</p>
+<p>{</p>
+<p>if(pk<a><</a>0)</p>
+<p>{</p>
+<p>x=x+1;</p>
+<p>pk=pk+4*x+6;</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+<p>x=x+1;</p>
+<p>y=y-1;</p>
+<p>pk=pk+4*(x-y)+10;</p>
+<p>}</p>
+<p>putpixel(xc+x,yc+y,RED);</p>
+<p>putpixel(xc+y,yc+x,RED);</p>
+<p>putpixel(xc+-x,yc+-y,RED);</p>
+<p>putpixel(xc+-y,yc+-x,RED);</p>
+<p>putpixel(xc+-x,yc+y,RED);</p>
+<p>putpixel(xc+-y,yc+x,RED);</p>
+<p>putpixel(xc+x,yc+-y,RED);</p>
+<p>putpixel(xc+y,yc+-x,RED);</p>
+<p>}</p>
+<p>}</p>
+<p>};</p>
+<p>int main()</p>
+<p>{</p>
+<p>b o;</p>
+<p>o.input();</p>
+<p>int gd=DETECT,gm;</p>
+<p>initgraph(&gd,&gm,NULL);</p>
+<p>o.circle(o.xc,o.yc,o.r);</p>
+<p>delay(5000);</p>
+<p>closegraph;</p>
+<p>}</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

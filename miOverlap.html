@@ -1,0 +1,198 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">overlap (with or without String)</h1>
+  <div class="button">
+<p>section .data</p>
+<p>msg1 db 'Contents before transfer',10</p>
+<p>msg1length equ $-msg1</p>
+<p>msg2 db 'Contents after transfer',10</p>
+<p>msg2length equ $-msg2</p>
+<p>msg3 db '*****MENU******',10</p>
+<p>db '1]without string instruction',10</p>
+<p>db '2]with string instruction',10</p>
+<p>db '3]Exit',10</p>
+<p>db 'Enter choice :',10</p>
+<p>msg3length equ $-msg3</p>
+<p>msg4 db 'Wrong  choice',10</p>
+<p>msg4length equ $-msg4</p>
+<p>msg5 db '  ',10</p>
+<p>msg5length equ $-msg5</p>
+
+<p>msg6 db 'Source block contents are :  ',10</p>
+<p>msg6length equ $-msg6</p>
+
+<p>msg7 db ' Enter Position : ',10</p>
+<p>msg7length equ $-msg7</p>
+
+<p>msg8  db ' wrong choice',10</p>
+<p>msg8length   equ $-msg8</p>
+<p>source_block db 01,02,03,04,05,00,00,00,00</p>
+<p>cnt dq 05</p>
+<p>pos dq 00</p>
+
+<p>section .bss</p>
+<p>dispbuff resb 2</p>
+<p>choice resb 2</p>
+<p>position resb 2</p>
+
+<p>%macro disp 2</p>
+<p>mov rax,1</p>
+<p>mov rdi,1</p>
+<p>mov rsi,%1</p>
+<p>mov rdx,%2</p>
+<p>syscall</p>
+<p>%endmacro</p>
+
+<p>%macro accept 2</p>
+<p>mov rax,0</p>
+<p>mov rdi,0</p>
+<p>mov rsi,%1</p>
+<p>mov rdx,%2</p>
+<p>syscall</p>
+<p>%endmacro</p>
+
+<p>section .text</p>
+<p>global _start</p>
+<p>_start:</p>
+
+<p>disp msg1,msg1length</p>
+<p>call show_block</p>
+<p>menu:disp msg3,msg3length</p>
+<p>accept choice,2</p>
+<p>cmp byte[choice],31h</p>
+<p>jne l1</p>
+<p>disp msg7,msg7length</p>
+<p>accept position,2</p>
+<p>call conversion</p>
+<p>call proc1</p>
+<p>jmp menu</p>
+
+<p>l1: cmp byte[choice],32h</p>
+<p>jne l2</p>
+<p>disp msg7,msg7length</p>
+<p>accept position,2</p>
+<p>call conversion</p>
+<p>call proc2</p>
+<p>jmp menu</p>
+<p>l2: cmp byte[choice],33h</p>
+<p>jne l3</p>
+<p>jmp exit</p>
+<p>l3: disp msg8,msg8length</p>
+<p>exit: mov rax,60</p>
+<p>mov rdi,0</p>
+<p>syscall</p>
+
+<p>show_block:</p>
+
+<p>disp msg6,msg6length</p>
+<p>mov rsi ,source_block</p>
+<p>mov rcx,[cnt]</p>
+<p>add rcx,[pos]</p>
+<p>mov rsi,source_block</p>
+<p>S1:mov bl,[rsi]</p>
+<p>push rsi</p>
+<p>call display_no</p>
+<p>pop rsi</p>
+<p>inc rsi</p>
+<p>dec rcx</p>
+<p>jnz S1</p>
+<p>ret</p>
+
+<p>display_no:</p>
+<p>push rcx</p>
+<p>push rsi</p>
+<p>mov rcx,02</p>
+<p>mov rdi,dispbuff</p>
+<p>l55:rol bl,04</p>
+<p>mov dl,bl</p>
+<p>and dl,0fh</p>
+<p>cmp dl,09h</p>
+<p>jbe M3</p>
+<p>add dl,07h</p>
+<p>M3:add dl,30h</p>
+<p>mov[rdi],dl</p>
+<p>inc rdi</p>
+<p>dec rcx</p>
+<p>jnz l55</p>
+<p>disp dispbuff,02</p>
+<p>disp msg5,msg5length</p>
+<p>pop rsi</p>
+<p>pop rcx</p>
+<p>ret</p>
+
+<p>conversion:</p>
+<p>push rsi</p>
+<p>mov rsi,position</p>
+<p>mov bl,[rsi]</p>
+<p>cmp bl,'9'</p>
+<p>jbe l44</p>
+<p>sub bl,07h</p>
+<p>l44:sub bl,30h</p>
+<p>mov byte[pos],bl</p>
+<p>dec byte[pos]</p>
+<p>pop rsi</p>
+<p>ret</p>
+
+<p>proc1:</p>
+<p>mov rcx,[cnt]</p>
+<p>mov rsi,source_block+4</p>
+<p>mov rdi,rsi</p>
+<p>add rdi,[pos]</p>
+<p>l66:mov bl,[rsi]</p>
+<p>mov [rdi],bl</p>
+<p>dec rdi</p>
+<p>dec rsi</p>
+<p>dec rcx</p>
+<p>jnz l66</p>
+<p>disp msg2,msg2length</p>
+<p>call show_block</p>
+<p>ret</p>
+
+<p>proc2:</p>
+<p>mov rcx,[cnt]</p>
+<p>mov rsi,source_block+4</p>
+<p>mov rdi,rsi</p>
+<p>add rdi,[pos]</p>
+<p>std</p>
+<p>rep movsb</p>
+<p>disp msg2,msg2length</p>
+<p>call show_block</p>
+<p>ret</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">Binary Search Tree</h1>
+  <div class="button">
+<p>#include <a><</a>iostream></p>
+<p>#include<a><</a>string.h></p>
+<p>#define h(x) x%10</p>
+<p>using namespace std;</p>
+<p>struct linear</p>
+<p>{</p>
+<p>    string name;</p>
+<p>    long int mob_no;</p>
+<p>}l[10];</p>
+
+<p>class lin_probing</p>
+<p>{</p>
+<p>    int loc;</p>
+<p>public:</p>
+<p>    lin_probing()</p>
+<p>{</p>
+<p>        for(int i=0;i<a><</a>10;i++)</p>
+<p>        {</p>
+<p>            l[i].mob_no=-1;</p>
+<p>        }</p>
+<p>}
+<p>    void insert(string,long int,int);</p>
+<p>    void display();</p>
+<p>    void search(long int);</p>
+<p>};</p>
+
+<p>void lin_probing::insert(string nam,long int no,int i)</p>
+<p>{</p>
+<p>    loc=h(no);</p>
+<p>    if(l[loc].mob_no==-1)</p>
+<p>    {</p>
+<p>        l[loc].name=nam;</p>
+<p>        l[loc].mob_no=no;</p>
+<p>    }</p>
+<p>    else</p>
+<p>    {</p>
+<p>        int i=loc+1;</p>
+<p>        i=i%10;</p>
+<p>        while(i!=loc)</p>
+<p>        {</p>
+<p>            if(l[i].mob_no==-1)</p>
+<p>            {</p>
+<p>                l[i].name=nam;</p>
+<p>                l[i].mob_no=no;</p>
+<p>                break;</p>
+<p>            }</p>
+<p>            i++;</p>
+<p>        }</p>
+<p>    }</p>
+<p>}</p>
+
+<p>void lin_probing::display()</p>
+<p>{</p>
+<p>    cout<<"\nName:\tNumber:\n";</p>
+<p>    for(int i=0;i<a><</a>10;i++)</p>
+<p>    {</p>
+<p>          cout<<a><</a>l[i].name<<"\t"<<a><</a>l[i]<a>.</A>mob_no<<"\n";</p>
+<p>    }</p>
+<p>}</p>
+
+<p>void lin_probing::search(long int number)</p>
+<p>{</p>
+<p>    loc=h(number);</p>
+<p>        if(l[loc].mob_no==number)</p>
+<p>        {</p>
+<p>            cout<<"\nData found\t";</p>
+<p>            cout<<a><</A>l[loc].name<<"\t"<<a><</a>l[loc].mob_no;</p>
+<p>        }</p>
+<p>        else</p>
+<p>        {</p>
+<p>            int i=loc+1;</p>
+<p>            i=(loc+1)%10;</p>
+<p>            while(i!=loc)</p>
+<p>            {</p>
+<p>                if(l[i].mob_no==number)</p>
+<p>                {</p>
+<p>                    cout<<"\nData found\t";</p>
+<p>                    cout<<a><</A>l[loc].name<<"\t"<<a><</a>l[loc].mob_no;</p>
+<p>                    break;</p>
+<p>                }</p>
+<p>                i++;</p>
+<p>            }</p>
+<p>            if(i==loc)</p>
+<p>                cout<<"\nData not found";</p>
+<p>        }</p>
+
+<p>}</p>
+<p>int main()</p>
+<p>{</p>
+<p>     lin_probing lb;</p>
+<p>  string nam;</p>
+<p>  long int no;</p>
+<p>  int choice,n;</p>
+<p>  char ans;</p>
+
+<p>  do</p>
+<p>  {</p>
+<p>      cout<<"\n1.Insert\n2.Display\n3.Search\nEnter your choice";</p>
+<p>      cin>>choice;</p>
+<p>      switch(choice)</p>
+<p>      {</p>
+<p>      case 1:</p>
+<p>          cout<<"\nEnter total count";</p>
+<p>            cin>>n;</p>
+<p>       for(int i=0;i<a><</a>n;i++)</p>
+<p>       {</p>
+<p>          cout<<"\nEnter name";</p>
+<p>          cin>>nam;</p>
+<p>          cout<<"\nEnter mobile no";</p>
+<p>          cin>>no;</p>
+<p>          lb.insert(nam,no,i);</p>
+<p>       }</p>
+<p>  break;</p>
+<p>      case 2:</p>
+<p>          lb.display();</p>
+<p>          break;</p>
+<p>      case 3:</p>
+<p>           long int number;</p>
+<p>           cout<<"\nEnter the number to be searched";</p>
+<p>           cin>>number;</p>
+<p>           lb.search(number);</p>
+<p>         break;</p>
+<p>      }</p>
+<p>cout<<"Do you want to continue(y/n)";</p>
+<p>cin>>ans;</p>
+
+<p>  }while(ans!='n');</p>
+<p>  return 0;</p>
+<p>}</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

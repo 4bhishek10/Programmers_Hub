@@ -1,0 +1,162 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">XYShear And rotation</h1>
+  <div class="button">
+<p>#include<a><</a>iostream></p>
+<p>#include<a><</a>graphics.h></p>
+<p>#include<a><</a>math.h></p>
+<p>using namespace std;</p>
+<p>int main()</p>
+<p>{</p>
+<p>int gd=DETECT;</p>
+<p>int gm,x1,y1,x2,y2,x3,y3,xsh,ysh,xsh1,ysh1,xsh2,ysh2,xsh3,ysh3;</p>
+<p>x1 = 100;</p>
+<p>y1 = 150;</p>
+<p>x2 =120;</p>
+<p>y2 = 200;</p>
+<p>x3 = 50;</p>
+<p>y3 = 200;</p>
+<p>int ch;</p>
+<p>cout<<"Operations to be performed \n 1.x shear \n 2.y shear";</p>
+<p>cout<<"\n 3.Reflection about x-axis \n 4.Reflection about y-axis ";</p>
+<p>cin>>ch;</p>
+<p>switch(ch)</p>
+<p>{</p>
+<p>case 1 :</p>
+<p>cout<<" \n Enter x shear value";</p>
+<p>cin>>xsh;</p>
+<p>xsh1 = x1+xsh*y1;</p>
+<p>xsh2 = x2+xsh*y2;</p>
+<p>xsh3 = x3+xsh*y3;</p>
+<p>initgraph(&gd,&gm,NULL);</p>
+<p>delay(20);</p>
+<p>setcolor(WHITE);</p>
+<p>line(x1,y1,x2,y2);</p>
+<p>line(x2,y2,x3,y3);</p>
+<p>delay(20);</p>
+<p>line(x3,y3,x1,y1);</p>
+<p>setcolor(4);</p>
+<p>line(xsh1,y1,xsh2,y2);</p>
+<p>line(xsh2,y2,xsh3,y3);</p>
+<p>delay(20);</p>
+<p>line(xsh3,y3,xsh1,y1);</p>
+<p>delay(1000);</p>
+<p>closegraph();</p>
+<p>break;</p>
+
+<p>case 2:</p>
+<p>cout<<" \n Enter y shear value";</p>
+<p>cin>>ysh;</p>
+<p>ysh1 = y1+ysh*x1;</p>
+<p>ysh2 = y2+ysh*x2;</p>
+<p>ysh3 = y3+ysh*x3;</p>
+<p>initgraph(&gd,&gm,NULL);</p>
+<p>setcolor(WHITE);</p>
+<p>line(x1,y1,x2,y2);</p>
+<p>delay(20);</p>
+<p>line(x2,y2,x3,y3);</p>
+<p>line(x3,y3,x1,y1);</p>
+<p>setcolor(4);</p>
+<p>line(x1,ysh1,x2,ysh2);</p>
+<p>delay(20);</p>
+<p>line(x2,ysh2,x3,ysh3);</p>
+<p>line(x3,ysh3,x1,ysh1);</p>
+<p>delay(1500);</p>
+<p>closegraph();</p>
+<p>break;</p>
+
+<p>case 3:</p>
+<p>cout<<"Relfection about x-axis";</p>
+<p>initgraph(&gd,&gm,NULL);</p>
+<p>int maxx,maxy;</p>
+<p>maxx=getmaxx();</p>
+<p>maxy=getmaxy();</p>
+<p>float midx,midy;</p>
+<p>midx=maxx/2;</p>
+<p>midy=maxy/2;</p>
+<p>line(0,midy,maxx,midy);</p>
+<p>outtextxy(0,midy,"X-axis");</p>
+<p>delay(500);</p>
+<p>line(midx,0,midx,maxy);</p>
+<p>outtextxy(midx,0,"Y-axis");</p>
+<p>delay(1000);</p>
+<p>line(midx+x1,y1,midx+x2,y2);</p>
+<p>line(midx+x2,y2,midx+x3,y3);</p>
+<p>line(midx+x3,y3,midx+x1,y1);</p>
+
+<p>line(midx+x1,maxy-y1,midx+x2,maxy-y2);</p>
+<p>line(midx+x2,maxy-y2,midx+x3,maxy-y3);</p>
+<p>line(midx+x3,maxy-y3,midx+x1,maxy-y1);</p>
+
+<p>delay(5000);</p>
+<p>closegraph();</p>
+<p>break;</p>
+
+<p>case 4:</p>
+<p>cout<<"Relfection about y-axis";</p>
+<p>initgraph(&gd,&gm,NULL);</p>
+<p>int maxx1,maxy1;</p>
+<p>maxx1=getmaxx();</p>
+<p>float midx1,midy1;</p>
+  <p>maxy1=getmaxy();</p>
+<p>midx1=maxx1/2;</p>
+<p>midy1=maxy1/2;</p>
+<p>line(0,midy1,maxx1,midy1);</p>
+<p>outtextxy(0,midy1,"X-axis");</p>
+<p>delay(500);</p>
+<p>line(midx1,0,midx1,maxy1);</p>
+<p>outtextxy(midx1,0,"Y-axis");</p>
+<p>delay(1000);</p>
+<p>line(midx1+x1,y1,midx1+x2,y2);</p>
+<p>line(midx1+x2,y2,midx1+x3,y3);</p>
+<p>line(midx1+x3,y3,midx1+x1,y1);</p>
+
+<p>line(midx1-x1,y1,midx1-x2,y2);</p>
+<p>line(midx1-x2,y2,midx1-x3,y3);</p>
+<p>line(midx1-x3,y3,midx1-x1,y1);</p>
+
+<p>delay(5000);</p>
+<p>closegraph();</p>
+<p>break;</p>
+
+<p>}</p>
+<p>return(0);</p>
+<p>}</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

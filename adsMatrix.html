@@ -1,0 +1,224 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">Adjency Matrix</h1>
+  <div class="button">
+<p>#include <a><</a>iostream></p>
+<p>using namespace std;</p>
+<p>int mat[10][10],v,e,v1,v2;</p>
+<p>char ch;</p>
+<p>class a</p>
+<p>{</p>
+<p>public:</p>
+	<p>void create()</p>
+	<p>{</p>
+	<p>cout<<"Enter no. of vertices";</p>
+	<p>cin>>v;</p>
+	<p>cout<<"Enter no. of edges";</p>
+	<p>cin>>e;</p>
+	<p>cout<<"Graph is directed or undirected?";</p>
+	<p>cin>>ch;</p>
+	<p>for(int i=0;i<a><</a>v<a>;</a>i++)</p>
+	<p>{</p>
+	<p>for(int j=0;j<a><</a>v;j++)</p>
+	<p>{</p>
+	<p>mat[i][j]=0;</p>
+	<p>}</p>
+	<p>}</p>
+	<p>for(int i=0;i<a><</a>e;i++)</p>
+	<p>{</p>
+	<p>cout<<"Enter starting vertex";</p>
+	<p>cin>>v1;</p>
+	<p>cout<<"Enter end vertex";</p>
+	<p>cin>>v2;</p>
+	<p>if((v1>=1 && v1<=v)&&(v2>=1 && v2<=v))</p>
+	<p>{</p>
+	<p>cout<<"Enter weight";</p>
+	<p>cin>>mat[v1-1][v2-1];</p>
+	<p>if(ch=='u')</p>
+	<p>{</p>
+	<p>mat[v2-1][v1-1]=mat[v1-1][v2-1];</p>
+	<p>}</p>
+	<p>}</p>
+	<p>}</p>
+	<p>}</p>
+	<p>void display()</p>
+	<p>{</p>
+	<p>for(int i=0;i<a><</a>v;i++)</p>
+	<p>{</p>
+	<p>for(int j=0;j<a><</a>v;j++)</p>
+	<p>{</p>
+	<p>cout<<"\t"<<a><</a>mat[i][j];</p>
+
+	<p>}</p>
+	<p>cout<<a><</a>endl;</p>
+	<p>}</p>
+	<p>}</p>
+<p>};</p>
+<p>class b</p>
+<p>{</p>
+<p>public:</p>
+	<p>struct node</p>
+	<p>{</p>
+		<p>int data;</p>
+		<p>struct node *next;</p>
+	<p>}list[v];</p>
+	<p>void input()</p>
+	<p>{</p>
+		<p>cout<<"Enter no. of vertices";</p>
+		<p>cin>>v;</p>
+		<p>cout<<"Enter no. of edges";</p>
+		<p>cin>>e;</p>
+
+		<p>for(int i=0;i<a><</a>v;i++)</p>
+		<p>{</p>
+			<p>list[i].data=i+1;</p>
+			<p>list[i].next=NULL;</p>
+		<p>}</p>
+		<p>for(int i=0;i<a><</a>v;i++)</p>
+		<p>{</p>
+          <p>cout<<"ENter start vertex";</p>
+          <p>cin>>v1;</p>
+          <p>cout<<"Enter end vertex";</p>
+          <p>cin>>v2;</p>
+<p>if((v1>=1&&v1<=v)&&(v2>=1&&v2<=v))</p>
+<p>{</p>
+ <p>node *enode,*temp;</p>
+<p>enode=new node;</p>
+<p>enode->data=v2;</p>
+<p>enode->next=NULL;</p>
+<p>temp=list[v1-1].next;</p>
+
+<p>if(temp==NULL)</p>
+<p>{</p>
+	<p>list[v1-1].next=enode;</p>
+<p>}</p>
+<p>else</p>
+<p>{</p>
+	<p>while(temp->next!=NULL)</p>
+	<p>{</p>
+     <p>temp=temp->next;</p>
+	<p>}</p>
+	<p>temp->next=enode;</p>
+<p>}</p>
+
+<p>}</p>
+		<p>}</p>
+	<p>}</p>
+	<p>void show()</p>
+	<p>{</p>
+		<p>for(int i=0;i<a><</a>v;i++)</p>
+		<p>{</p>
+			<p>node *temp;</p>
+			<p>cout<<a><</a>list[i].data<<"->";</p>
+			<p>temp=list[i].next;</p>
+			<p>while(temp!=NULL)</p>
+			<p>{</p>
+				<p>cout<<temp->data;</p>
+				<p>if(temp->next!=NULL)</p>
+				<p>{</p>
+					<p>cout<<"->";</p>
+				<p>}</p>
+				<p>temp=temp->next;</p>
+			<p>}</p>
+
+		<p>}</p>
+	<p>}</p>
+<p>};</p>
+
+<p>int main()</p>
+<p>{</p>
+	<p>a o;</p>
+	<p>b o1;</p>
+	<p>int c,ch,ch1;</p>
+	<p>char ans1,ans,ans2;</p>
+<p>do</p>
+<p>{</p>
+	<p>cout<<"1.Adjency Matrix\n2.Adjency list"<<a><</a>endl;</p>
+
+		<p>cout<<"ENter your choice";</p>
+		<p>cin>>c;</p>
+		<p>switch(c)</p>
+		<p>{</p>
+		<p>do{</p>
+		<p>case 1:cout<<"1.Create using matrix\n2.display by matrix"<<a><</a>endl;</p>
+
+				<p>cout<<"Enter your choice";</p>
+		        <p>cin>>ch;</p>
+		        <p>switch(ch)</p>
+		        <p>{</p>
+
+		        <p>case 1:o.create();</p>
+		        <p>break;</p>
+
+		        <p>case 2:o.display();</p>
+		        <p>break;</p>
+
+
+		        <p>}</p>
+		        <p>cout<<"continue with matrix operation?";</p>
+		        		<p>cin>>ans1;</p>
+
+		<p>}while(ans1=='y');</p>
+		        <p>break;</p>
+
+		        <p>do{</p>
+	    <p>case 2:cout<<"1.Create using list\n2.display by list"<<a><</a>endl;</p>
+	    	<p>cout<<"Enter your choice"<<a><</a>endl;</p>
+                <p>cin>>ch1;</p>
+		        <p>switch(ch1)</p>
+		        	<p>{</p>
+		        	   <p>case 1:o1.input();</p>
+		        		      <p>break;</p>
+		        	   <p>case 2:o1.show();</p>
+		        		      <p>break;</p>
+		        <p>}</p>
+		        <p>cout<<"continue with list operation?";</p>
+		        		        		<p>cin>>ans2;</p>
+
+		<p>}while(ans2=='y');</p>
+		        <p>break;</p>
+		<p>}</p>
+		<p>cout<<"Do u want to continue?";</p>
+		<p>cin>>ans;</p>
+
+	<p>}while(ans=='y');</p>
+<p>return 0;</p>
+<p>}</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

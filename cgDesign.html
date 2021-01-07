@@ -1,0 +1,109 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">Design DDA</h1>
+  <div class="button">
+<p>#include<a><</a>iostream></p>
+<p>#include<a><</a>graphics.h></p>
+<p>#include<a><</a>math.h></p>
+<p>using namespace std;</p>
+<p>void DDA(float ,float,float,float);</p>
+<p>int main()</p>
+<p>{</p>
+<p>int gd=DETECT,gm;</p>
+<p>float x1,y1,x2,y2,xm,ym,xm1,ym1,xp,yp,xq,yq,xr,yr,xs,ys;</p>
+<p>cout<<"Enter co-ordinates x1 and y1";</p>
+<p>cin>>x1>>y1;</p>
+<p>cout<<"Enter co-ordinates x2 and y2";</p>
+<p>cin>>x2>>y2;</p>
+<p>xm=(x1+x2)/2;</p>
+<p>ym=(y1+y2)/2;</p>
+<p>xm1=(x1+x2)/2;</p>
+<p>ym1=(y1+y2)/2;</p>
+<p>xp=(x1+xm)/2;</p>
+<p>yp=(y1+ym1)/2;</p>
+<p>xq=(x1+xm1)/2;</p>
+<p>yq=(ym1+y2)/2;</p>
+<p>xr=(xm1+x2)/2;</p>
+<p>yr=(y2+ym)/2;</p>
+<p>xs=(x2+xm)/2;</p>
+<p>ys=(ym+y1)/2;</p>
+<p>initgraph(&gd,&gm,NULL);</p>
+
+<p>DDA(x1,x2,y1,y1); </p>
+<p>DDA(x1,x2,y2,y2);</p>
+<p>DDA(x2,x2,y2,y1);</p>
+<p>DDA(x1,x1,y1,y2);</p>
+<p>DDA(xm,x1,y1,ym1);</p>
+<p>DDA(x1,xm1,ym1,y2);</p>
+<p>DDA(xm1,x2,y2,ym);</p>
+<p>DDA(x2,xm,ym,y1);</p>
+<p>DDA(xp,xq,yp,yq);</p>
+<p>DDA(xq,xr,yq,yr);</p>
+<p>DDA(xr,xs,yr,ys);</p>
+<p>DDA(xp,xs,yp,ys);</p>
+<p>closegraph;</p>
+<p>return 0;</p>
+<p>}</p>
+<p>void DDA(float x1,float x2,float y1,float y2)</p>
+<p>{</p>
+<p>float dx,dy,x,y,xinc,yinc,length;</p>
+<p>dx=x2-x1;</p>
+<p>dy=y2-y1;</p>
+
+<p>if(abs(dx)>abs(dy))</p>
+<p>length=abs(dx);</p>
+<p>else</p>
+<p>length=abs(dy);</p>
+<p>xinc=dx/length;</p>
+<p>yinc=dy/length;</p>
+<p>x=x1;</p>
+<p>y=y1;</p>
+
+<p>for(int v=0;v<=length;v++)</p>
+<p>{</p>
+<p>x=x+xinc;</p>
+<p>y=y+yinc;</p>
+
+<p>putpixel(round(x),round(y),GREEN);</p>
+<p>//DDA(x1,y1,x2,y2);</p>
+<p>delay(10);</p>
+<p>}</p>
+<p>}</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

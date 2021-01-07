@@ -1,0 +1,4 @@
+*How to Monitize site
+*How to Host website using github
+*Should we do login?
+*put a search bar on website

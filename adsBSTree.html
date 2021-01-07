@@ -1,0 +1,169 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">Binary Search Tree</h1>
+  <div class="button">
+<p>#include <a><</a>iostream></p>
+<p>using namespace std;</p>
+<p>class tree</p>
+<p>{</p>
+<p>public:</p>
+	<p>struct node</p>
+	<p>{</p>
+		<p>int data;</p>
+	    <p>node *left;</p>
+	    <p>node *right;</p>
+	<p>};</p>
+	<p>node *root;</p>
+	<p>tree()</p>
+	<p>{</p>
+		<p>root=NULL;</p>
+	<p>}</p>
+	<p>void create()</p>
+	<p>{</p>
+	<p>node *nnode;</p>
+	<p>nnode=new node;</p>
+	<p>nnode->left=NULL;</p>
+	<p>nnode-> right=NULL;</p>
+	<p>cout<<"Enter the data";</p>
+	<p>cin>>nnode->data;</p>
+	<p>if(root==NULL)</p>
+	<p>{</p>
+		<p>root=nnode;</p>
+	<p>}</p>
+	<p>else</p>
+		<p>insert(root,nnode);</p>
+	<p>}</p>
+	<p>void insert(node *root,node *nnode)</p>
+	<p>{</p>
+		<p>char ch;</p>
+		<p>cout<<"where do u want to insert a node?(L/R):of "<<root->data;</p>
+		<p>cin>>ch;</p>
+		<p>if(ch=='R')</p>
+		<p>{</p>
+			<p>if(root->right==NULL)</p>
+				<p>root->right=nnode;</p>
+			<p>else</p>
+				<p>insert(root->right,nnode);</p>
+		<p>}</p>
+		<p>if(ch=='L')</p>
+				<p>{</p>
+					<p>if(root->left==NULL)</p>
+						<p>root->left=nnode;</p>
+					<p>else</p>
+						<p>insert(root->left,nnode);</p>
+				<p>}</p>
+	<p>}</p>
+	<p>void dinsert()</p>
+	<p>{</p>
+		<p>node *nnode;</p>
+		<p>int d;</p>
+		<p>nnode=new node;</p>
+		<p>nnode->right==NULL;</p>
+		<p>nnode->left==NULL;</p>
+		<p>cout<<"Enter data in new node";</p>
+		<p>cin>>d;</p>
+		<p>nnode->data=d;</p>
+		<p>insert(root,nnode);</p>
+	<p>}</p>
+	<p>void preorder(node *root)</p>
+	<p>{</p>
+		<p>if(root!=NULL)</p>
+		<p>{</p>
+			<p>cout<<root->data;</p>
+			<p>preorder(root->left);</p>
+			<p>preorder(root->right);</p>
+		<p>}</p>
+	<p>}</p>
+	<p>void dislay()</p>
+	<p>{</p>
+		<p>preorder(root);</p>
+	<p>}</p>
+	<p>void delet(node *root)</p>
+	<p>{</p>
+		<p>if(root!=NULL)</p>
+		<p>{</p>
+			<p>delet(root->left);</p>
+			<p>delet(root->right);</p>
+			<p>delete root;</p>
+		<p>}</p>
+		<p>cout<<"Tree is deleted";</p>
+	<p>}</p>
+	<p>void erase()</p>
+	<p>{</p>
+		<p>delet(root);</p>
+	<p>}</p>
+<p>void operator =(tree t1)</p>
+<p>{</p>
+	<p>this->root=t1.root;</p>
+	<p>preorder(this->root);</p>
+<p>}</p>
+<p>};</p>
+<p>int main()</p>
+<p>{</p>
+	<p>//node *root;</p>
+	<p>tree t;</p>
+	<p>tree t1;</p>
+	<p>int c;</p>
+	<p>char ans;</p>
+<p>do</p>
+	<p>{</p>
+		<p>cout<<"1.Create\n2.Insert\n3.Delete\n4.display\n5.newtree";</p>
+			<p>cout<<"Enter your choice";</p>
+			<p>cin>>c;</p>
+		<p>switch(c)</p>
+		<p>{</p>
+
+		<p>case 1:t.create();</p>
+		<p>break;</p>
+		<p>case 2:t.dinsert();</p>
+		<p>break;</p>
+		<p>case 3:t.erase();</p>
+		<p>break;</p>
+		<p>case 4:t.dislay();</p>
+		<p>break;</p>
+		<p>case 5:t1=t;</p>
+		<p>break ;</p>
+		<p>}</p>
+		<p>cout<<"\nDo u want to conti.?";</p>
+		<p>cin>>ans;</p>
+	<p>}while(ans=='y');</p>
+	<p>return 0;</p>
+<p>}</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>

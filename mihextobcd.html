@@ -1,0 +1,120 @@
+
+<html>
+<head>
+
+<title>Programer's Hub</title>
+<link href="program style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<header>
+  <div class="row">
+    <ul class= "hi">
+         <li><a class= "top" href="Programer's Hub.html">HOME</a></li>
+        <li><a class= "top" href=" ">About Us</a></li>
+
+  </ul>
+  </div>
+
+
+<div class="head">
+
+  <h1 class="abc">Hex To Bcd</h1>
+  <div class="button">
+<p>section .data</p>
+<p>num db 02Ch</p>
+<p>cnt db 00</p>
+<p>msg db 'HEX no. is',10</p>
+<p>len equ $-msg</p>
+<p>msg2 db 'No. in BCD'</p>
+<p>len2 equ $-msg2</p>
+
+<p>section .bss</p>
+<p>disbuff resb 02</p>
+<p>result resb 02</p>
+<p>%macro disp 2</p>
+<p>mov rax,1</p>
+<p>mov rdi,1</p>
+<p>mov rsi,%1</p>
+<p>mov rdx,%2</p>
+<p>syscall</p>
+<p>%endmacro</p>
+
+<p>section .text</p>
+<p>global _start</p>
+<p>_start:</p>
+
+<p>disp msg,len</p>
+<p>mov bl,byte[num]</p>
+<p>call ascii</p>
+<p>disp msg2,len2</p>
+<p>call proc1</p>
+
+<p>mov rax,60</p>
+<p>mov rdi,0</p>
+<p>syscall</p>
+
+<p>ascii:</p>
+<p>push rcx</p>
+<p>push rdi</p>
+<p>push rsi</p>
+<p>mov rcx,02</p>
+<p>mov rdi,disbuff</p>
+<p>l2:rol bl,04</p>
+<p>mov dl,bl</p>
+<p>and dl,0fh</p>
+<p>cmp dl,09h</p>
+<p>jbe l1</p>
+<p>add dl,07h</p>
+<p>l1:add dl,30h</p>
+<p>mov [rdi],dl</p>
+<p>inc rdi</p>
+<p>dec rcx</p>
+<p>jnz l2</p>
+<p>disp disbuff,02</p>
+<p>pop rsi</p>
+<p>pop rdi</p>
+<p>pop rcx</p>
+<p>ret</p>
+
+
+<p>proc1:</p>
+<p>mov bl,byte[num]</p>
+<p>call ascii</p>
+<p>mov rcx,0</p>
+<p>mov al,bl</p>
+<p>mov bx,10</p>
+<p>l3:mov dx,00</p>
+<p>div bx</p>
+<p>push rdx</p>
+<p>inc rcx</p>
+<p>inc byte[cnt]</p>
+<p>cmp ax,00</p>
+<p>jne l3</p>
+<p>disp msg2,len2</p>
+<p>l4:pop rdx</p>
+<p>add dl,30h</p>
+<p>mov [result],dl</p>
+<p>disp result,2</p>
+<p>dec byte[cnt]</p>
+<p>jnz l4</p>
+<p>ret</p>
+
+
+  </div>
+
+</div>
+
+
+</header>
+
+<footer>
+<a>  Devoloped & Designed by <span> <a class="insta h"> Abhishek Dhondge </a> </span> </a>
+</footer>
+
+
+
+</body>
+
+</html>
